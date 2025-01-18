@@ -12,7 +12,7 @@ namespace Backend.Models
         public string Name { get; set; }
         [Required]
         public float Price { get; set; }
-        public int CategoryId { get; set; }
+        public int CategoryProductId { get; set; }
         public CategoryProduct CategoryProduct { get; set; }
         public DateTime CreatedDate { get; set; }
     }

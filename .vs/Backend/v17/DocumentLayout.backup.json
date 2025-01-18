@@ -1,38 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\",
+  "WorkspaceRootPath": "D:\\Backend\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\controllers\\categoryproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\categoryproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\controllers\\categoryproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\controllers\\categoryproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\categoryproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|c:\\users\\quang duy\\source\\repos\\backend\\backend\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\models\\categoryproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|d:\\backend\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{837EB6ED-1153-4B60-AB58-47E11119DA24}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,107 +38,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoryProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\CategoryProductsController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\CategoryProductsController.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\CategoryProductsController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\CategoryProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T12:44:55.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T12:43:31.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "CategoryProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\CategoryProductController.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Controllers\\CategoryProductController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\CategoryProductController.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Controllers\\CategoryProductController.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Controllers\\CategoryProductController.cs",
               "RelativeToolTip": "Backend\\Controllers\\CategoryProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAkwEAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T12:41:34.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Program.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Program.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Program.cs",
               "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAACFAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T11:25:48.469Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\appsettings.json",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\appsettings.json",
               "RelativeDocumentMoniker": "Backend\\appsettings.json",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\appsettings.json",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\appsettings.json",
               "RelativeToolTip": "Backend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-17T11:23:24.914Z"
+              "WhenOpened": "2025-01-17T11:23:24.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Models\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\AppDBContext.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Models\\AppDBContext.cs",
+              "RelativeToolTip": "Backend\\Models\\AppDBContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAxwB4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T11:14:51.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\Product.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Models\\Product.cs",
+              "RelativeToolTip": "Backend\\Models\\Product.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T11:06:42.416Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AppDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\AppDBContext.cs",
-              "RelativeDocumentMoniker": "Backend\\Models\\AppDBContext.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\AppDBContext.cs",
-              "RelativeToolTip": "Backend\\Models\\AppDBContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T11:14:51.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Backend\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\Product.cs",
-              "RelativeToolTip": "Backend\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T11:06:42.416Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "CategoryProduct.cs",
-              "DocumentMoniker": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\CategoryProduct.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Models\\CategoryProduct.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\CategoryProduct.cs",
-              "ToolTip": "C:\\Users\\Quang Duy\\source\\repos\\Backend\\Backend\\Models\\CategoryProduct.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Models\\CategoryProduct.cs",
               "RelativeToolTip": "Backend\\Models\\CategoryProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T11:06:30.882Z"
+              "WhenOpened": "2025-01-17T11:06:30.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Backend\\Backend\\Backend\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Backend\\Backend\\Backend\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAADwv0IAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T12:43:31.506Z",
+              "EditorCaption": ""
             }
           ]
         }

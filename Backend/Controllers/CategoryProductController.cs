@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace Backend.Controllers
 {
+    [EnableCors("AddCors")]
     [ApiController]
     [Route("api/[controller]")]
     public class CategoryProductController : ControllerBase
@@ -17,55 +19,76 @@ namespace Backend.Controllers
         {
             _context = context;
         }
-
         // GET: api/CategoryProducts
         [HttpGet]
-        public async Task<IActionResult> GetCategoryProducts(int page = 1, int pageSize = 10)
+        public async Task<ActionResult<CategoryProduct>> GetALL()
         {
-            var products = await _context.CategoryProducts.Select(x => new CategoryProductDTO
+            var data = await _context.CategoryProducts.ToArrayAsync();
+
+            return Ok(data);
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(string name, int page = 1, int pageSize = 10)
+        {
+            var categorysQuery = _context.CategoryProducts.AsQueryable();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                categorysQuery = categorysQuery.Where(p => p.Name.Contains(name));
+            }
+
+            var totalItems = await categorysQuery.CountAsync();
+
+            var categorys = await categorysQuery
+                .OrderByDescending(p => p.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(x => new CategoryProductDTO
                 {
                     Id = x.Id,
                     Name = x.Name,
                     CreatedDate = x.CreatedDate,
                     QuantityProduct = x.Products.Count()
                 })
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
                 .ToListAsync();
 
-            var totalProducts = await _context.CategoryProducts.CountAsync();
-            var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
 
-            return Ok(new
-            {
-                products,
-                totalPages
-            });
+            return Ok(new { categorys, totalPages });
         }
 
-        [HttpGet("search")]
-        public async Task<IActionResult> Search(string name)
+        [HttpGet("countProduct/{id}")]
+        public async Task<ActionResult> CountProductInCategory(int id)
         {
-            // Lọc sản phẩm theo tên và category
-            var productsQuery = _context.CategoryProducts.AsQueryable();
+            var count = await _context.CategoryProducts
+                .Where(x => x.Id == id)
+                .Select(x => new
+                {
+                    QuantityProduct = x.Products.Count()
+                })
+                .FirstOrDefaultAsync();
 
-            // Nếu có tham số tìm kiếm tên, lọc theo tên
-            if (!string.IsNullOrEmpty(name))
+            if (count == null)
             {
-                productsQuery = productsQuery.Where(p => p.Name.Contains(name));
+                return NotFound("Danh mục không tồn tại.");
             }
 
-            // Lấy danh sách sản phẩm và trả về
-            var products = await productsQuery  // Nếu bạn muốn lấy thông tin category
-                .Select(p => new ProductDTO
-                {
-                    Id = p.Id,
-                    Name = p.Name, // Assuming Category has Name
-                    CreatedDate = p.CreatedDate
-                })
-                .ToListAsync();
+            return Ok(count);
+        }
 
-            return Ok(products);
+        [HttpGet("check-name")]
+        public async Task<ActionResult<bool>> CheckCategoryName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return BadRequest("Tên không hợp lệ.");
+            }
+
+            var exists = await _context.CategoryProducts
+                .AnyAsync(p => p.Name.ToLower() == name.ToLower());
+
+            return Ok(!exists);
         }
 
         // GET: api/CategoryProducts/5

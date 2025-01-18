@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace Backend.Controllers
 {
+    [EnableCors("AddCors")]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -18,63 +20,62 @@ namespace Backend.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(int page = 1, int pageSize = 10)
+        public async Task<ActionResult<Product>> GetALL()
         {
-            var products = await _context.Products.AsNoTracking().Join(_context.CategoryProducts, p => p.CategoryId, c => c.Id,
-                (p, c) => new { p, c }).Select(x => new ProductDTO
-                {
-                    Id = x.p.Id,
-                    Name = x.p.Name,
-                    Price = x.p.Price,
-                    CategoryProductName = x.c.Name,
-                    CreatedDate = x.p.CreatedDate,
-                })
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            var data = await _context.Products.ToArrayAsync();
 
-            var totalProducts = await _context.Products.CountAsync();
-            var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
-
-            return Ok(new
-            {
-                products,
-                totalPages
-            });
+            return Ok(data);
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> Search(string name, int? categoryId)
+        public async Task<IActionResult> Search(string name, int? categoryId, int page = 1, int pageSize = 10)
         {
-            // Lọc sản phẩm theo tên và category
             var productsQuery = _context.Products.AsQueryable();
 
-            // Nếu có tham số tìm kiếm tên, lọc theo tên
             if (!string.IsNullOrEmpty(name))
             {
                 productsQuery = productsQuery.Where(p => p.Name.Contains(name));
             }
 
-            // Nếu có tham số categoryId, lọc theo categoryId
             if (categoryId.HasValue)
             {
-                productsQuery = productsQuery.Where(p => p.CategoryId == categoryId.Value);
+                productsQuery = productsQuery.Where(p => p.CategoryProductId == categoryId.Value);
             }
 
-            // Lấy danh sách sản phẩm và trả về
+            var totalItems = await productsQuery.CountAsync();
+
             var products = await productsQuery
-                .Include(p => p.CategoryProduct)  // Nếu bạn muốn lấy thông tin category
+                .OrderByDescending(p => p.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Include(p => p.CategoryProduct)
                 .Select(p => new ProductDTO
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Price = p.Price,
-                    CategoryProductName = p.CategoryProduct.Name,  // Assuming Category has Name
+                    CategoryProductName = p.CategoryProduct.Name,
                     CreatedDate = p.CreatedDate
                 })
                 .ToListAsync();
 
-            return Ok(products);
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            return Ok(new { products, totalPages });
+        }
+
+        [HttpGet("check-name")]
+        public async Task<ActionResult<bool>> CheckProductName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return BadRequest("Tên sản phẩm không hợp lệ.");
+            }
+
+            var exists = await _context.Products
+                .AnyAsync(p => p.Name.ToLower() == name.ToLower());
+
+            return Ok(!exists);
         }
 
 
@@ -92,15 +93,13 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+             _context.Products.Add(product);
+             await _context.SaveChangesAsync();
+
+             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Product product)
