@@ -22,7 +22,7 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<ActionResult<Product>> GetALL()
         {
-            var data = await _context.Products.ToArrayAsync();
+            var data = await _context.Products.AsNoTracking().ToArrayAsync();
 
             return Ok(data);
         }
@@ -30,25 +30,38 @@ namespace Backend.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> Search(string name, int? categoryId, int page = 1, int pageSize = 10)
         {
-            var productsQuery = _context.Products.AsQueryable();
-
-            if (!string.IsNullOrEmpty(name))
+            if (page <= 0 || pageSize <= 0)
             {
-                productsQuery = productsQuery.Where(p => p.Name.Contains(name));
+                return BadRequest("Page và PageSize phải lớn hơn 0.");
+            }
+
+            var query = _context.Products
+                .AsNoTracking()
+                .Include(p => p.CategoryProduct)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                var sanitizedName = name.Trim().ToLower();
+                query = query.Where(p => EF.Functions.Like(p.Name.ToLower(), $"%{sanitizedName}%"));
             }
 
             if (categoryId.HasValue)
             {
-                productsQuery = productsQuery.Where(p => p.CategoryProductId == categoryId.Value);
+                query = query.Where(p => p.CategoryProductId == categoryId.Value);
             }
 
-            var totalItems = await productsQuery.CountAsync();
+            var totalItems = await query.CountAsync();
+            if (totalItems == 0)
+            {
+                return Ok(new { products = new List<ProductDTO>(), totalPages = 0 });
+            }
 
-            var products = await productsQuery
+            var products = await query
                 .OrderByDescending(p => p.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Include(p => p.CategoryProduct)
+                .AsNoTracking()
                 .Select(p => new ProductDTO
                 {
                     Id = p.Id,
@@ -65,15 +78,17 @@ namespace Backend.Controllers
         }
 
         [HttpGet("check-name")]
-        public async Task<ActionResult<bool>> CheckProductName(string name)
+        public async Task<IActionResult> CheckProductName(string name)
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 return BadRequest("Tên sản phẩm không hợp lệ.");
             }
 
+            var sanitizedName = name.Trim();
             var exists = await _context.Products
-                .AnyAsync(p => p.Name.ToLower() == name.ToLower());
+                .AsNoTracking()
+                .AnyAsync(p => p.Name.Equals(sanitizedName, StringComparison.OrdinalIgnoreCase));
 
             return Ok(!exists);
         }
@@ -82,11 +97,16 @@ namespace Backend.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .AsNoTracking()
+                .Include(p => p.CategoryProduct)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             if (product == null)
             {
                 return NotFound();
             }
+
             return Ok(product);
         }
 
@@ -106,7 +126,7 @@ namespace Backend.Controllers
         {
             if (id != product.Id)
             {
-                return BadRequest("Product ID mismatch.");
+                return BadRequest("ID sản phẩm không tồn tại.");
             }
 
             if (!ModelState.IsValid)
@@ -114,6 +134,11 @@ namespace Backend.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (!await _context.Products.AnyAsync(p => p.Id == id))
+            {
+                return NotFound();
+            }
+               
             _context.Entry(product).State = EntityState.Modified;
 
             try
@@ -122,11 +147,7 @@ namespace Backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Products.Any(e => e.Id == id))
-                {
-                    return NotFound();
-                }
-                throw;
+                return Conflict("Xuất hiện lỗi khi cập nhật.");
             }
 
             return NoContent();
@@ -145,6 +166,10 @@ namespace Backend.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        private bool ProductExists(int id)
+        {
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }
